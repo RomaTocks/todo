@@ -19,7 +19,7 @@ jobs:
       run: docker login -u $DOCKER_LOGIN -p $DOCKER_TOKEN
 
     - name: Build image
-      run: docker build . --file Dockerfile --tag todo-server:latest
+      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_HUB_LOGIN}}/todo-server:latest
 
     - name: Push to registry
       run: docker push ${{secrets.DOCKER_HUB_LOGIN}}/todo-server
